@@ -1,2 +1,4 @@
 # MYFinance
-Matt Yusuf Finance (Matt comes first because he's better)
+Matthew Lerman sucks at coding Because he is Bad
+Thank you
+#HARDCODECHAMPION
