@@ -1,2 +1,2 @@
 # MYFinance
-Matthew Lerman Sucks at Coding
+Yusuf sallam has decided not work on this project. I am looking for a new partner
