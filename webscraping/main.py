@@ -4,34 +4,32 @@ import time;
 import math;
 
 
-ticker = input("Input Ticker: ")
-
+# ticker = input("Input Ticker: ")
+ticker = input("Ticker: ")
 URL = "https://finance.yahoo.com/quote/"
 
 ms = time.time() * 1000
+
 page = requests.get(URL + ticker.upper())
-
-
 soup = BeautifulSoup(page.content, 'html.parser')
 
-results = soup.find(id="quote-header-info")
-
 try:
-    text = results.find('div', class_="D(ib) Mend(20px)")
+    priceText = soup.find('span', class_='Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)')
+    price = priceText.text
 except Exception:
     print("Invalid Ticker!")
     exit()
 
-price = ""
-text = str(text)
-for i in range(len(text) - 4):
-    if text[i] == '=' and text[i + 1] == '"' and text[i+2] == '5' and text[i+3] == "0":
-        x = 6
-        while text[i + x] != "<":
-            price += text[i + x]
-            x += 1
-        break
+try:
+    changeText = soup.find('span', class_='Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)')
+    change = changeText.text
+except Exception:
+    changeText = soup.find('span', class_='Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)')
+    change = changeText.text
+
+nameText = soup.find('h1', class_="D(ib) Fz(18px)")
+name = nameText.text
 
 ms2 = time.time() * 1000
-print("Price: $" + price + "\nTime Taken: " + str(math.ceil(ms2 - ms)) + " ms")
+print(name + "\nPrice: $" + price + "\nChange: " + change + "\nTime Taken: " + str(math.ceil(ms2 - ms)) + " ms")
 
