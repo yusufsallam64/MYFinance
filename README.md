@@ -1,5 +1,6 @@
 # MYFinance
 Yusuf sallam has decided not work on this project. I am looking for a new partner
+
 Matthew Lerman Sucks at Coding 
 # Description 
 An Electron application where users can track information regarding stock purchases. The app includes info such as:
