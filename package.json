@@ -1,0 +1,25 @@
+{
+  "name": "myfinanceapp",
+  "version": "1.0.0",
+  "description": "Matthew Lerman Sucks at Coding",
+  "main": "main.js",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "electron": "^13.0.1"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusufsallam64/MYFinance.git"
+  },
+  "author": "Yusuf and Matt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yusufsallam64/MYFinance/issues"
+  },
+  "homepage": "https://github.com/yusufsallam64/MYFinance#readme"
+}
