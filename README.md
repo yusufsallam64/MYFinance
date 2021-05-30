@@ -3,7 +3,7 @@ Yusuf sallam has decided not work on this project. I am looking for a new partne
 
 Matthew Lerman Sucks at Coding 
 # Description 
-An Electron application where users can track information regarding stock purchases. The app includes info such as:
+An web app where users can track information regarding stock purchases. The app includes info such as:
 1. Current profit on positions 
 2. Weekly average investment return
 3. Average daily profit/loss

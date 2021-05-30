@@ -1,16 +1,11 @@
 {
-  "name": "myfinanceapp",
+  "name": "myfinance",
   "version": "1.0.0",
-  "description": "Matthew Lerman Sucks at Coding",
-  "main": "main.js",
-  "dependencies": {
-    "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "electron": "^13.0.1"
-  },
+  "description": "",
+  "private": true,
   "scripts": {
-    "start": "electron ."
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -21,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/yusufsallam64/MYFinance/issues"
   },
-  "homepage": "https://github.com/yusufsallam64/MYFinance#readme"
+  "homepage": "https://github.com/yusufsallam64/MYFinance#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
