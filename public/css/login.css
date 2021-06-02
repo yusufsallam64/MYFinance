@@ -1,0 +1,33 @@
+* {
+    font-family: 'Oswald', sans-serif;
+    color: white !important;
+}
+
+body {
+    background-color: #1586C1;
+}
+
+html, body, .login-container{
+    height: 100%;
+}
+
+#title {
+    text-align: center;
+}
+
+h{
+    font-size: 80px;
+}
+
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner {
+    display: inline-block;
+}
+
+
+
+
