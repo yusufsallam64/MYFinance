@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Materialize -->
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel = "stylesheet" href = "css/main.css">
         {{#if style}}
@@ -10,16 +10,16 @@
         {{/if}}
         <!-- Google Fonts-->
         <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        
         
         
         
     </head>
 
     <body>
-        <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
+        <div class="valign-wrapper" style="width:100%;height:75%;position: absolute;">
             <div class="valign" style="width:100%;">
-                <div class="login-conatiner">
+                <div class="login-container" >
                     <div class="container">
                         <div id="title">
                             <h>MY Finance</h>
@@ -30,7 +30,7 @@
                                 <div class="row">
                                 <div class="input-field col s12 m6">
                                     <input id="username" type="text" class="validate">
-                                    <label for="username" id="usernamelabel" class="active">Username</label>
+                                    <label for="username" id="usernamelabel" class="active" style="font-size: 20px;">Username</label>
                                 </div>
                             </form>
                         </div>
@@ -39,16 +39,17 @@
                                 <div class="row">
                                 <div class="input-field col s12 m6">
                                     <input id="password" type="password" class="validate">
-                                    <label for="password" id= "passwordlabel" class="active">Password</label>
+                                    <label for="password" id= "passwordlabel" class="active" style="font-size: 20px;">Password</label>
                                 </div>
                             </form>
                         </div>
+                        
                         <div id="outer">
                             <div class= "inner"><form class="col s12 push-s20">
-                                <a class="waves-effect waves-light btn btn-small" id="loginbtn" style="background-color: white; color: #1586C1 !important">Login</a>
+                                <a class="waves-effect waves-light btn btn-small" id="loginbtn" style="background-color: white; color: #1586C1 !important" onclick="location.href='http://localhost:3000/dashboard'">Login</a>
                             </form></div>
                             <div class= "inner"><form class="col s12 push-s1">
-                                <a class="waves-effect waves-light btn btn-small" id="createaccountbtn" style="background-color: white; color: #1586C1 !important">Create Account</a>
+                                <a class="waves-effect waves-light btn btn-small" id="createaccountbtn" style="background-color: white; color: #1586C1 !important" onclick="location.href='http://localhost:3000/registration'">Create Account</a>
                             </form></div>
                         </div>
                         

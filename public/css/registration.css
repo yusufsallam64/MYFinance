@@ -19,6 +19,11 @@ h{
     font-size: 80px;
 }
 
+
+#createaccountbtn {
+    display: none;
+}
+
 #outer
 {
     width:100%;
