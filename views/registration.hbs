@@ -24,40 +24,33 @@
                         <div id="title">
                             <h>Create Account</h>
                         </div>
-                        
                         <div class="row">
-                            <form class="col s12 push-s3">
+                            <form class="col s12 push-s3" method="POST" action="/createAccount">
                                 <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input id="username" type="text" class="validate">
-                                    <label for="username" id="usernamelabel" class="active">Username</label>
+                                    <div class="input-field col s12 m6">
+                                        <input name = "username" id="username" type="text" class="validate">
+                                        <label for="username" id="usernamelabel" class="active">Username</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input name = "password" id="password" type="password" class="validate" onkeyup='check();'>
+                                        <label for="password" id= "password_label" class="active">Password</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input id="confirm_password" type="password" class="validate" onkeyup='check();'>
+                                        <label for="confirm_password" id= "confirm_password_label" class="active">Confirm Password</label>
+                                        <span id='message'></span>
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class = "col s3 push-s5">
+                                        <input class = "waves-effect waves-light btn btn-small" id="createaccountbtn" style = "margin: 0px; border-width: 0; background-color: white; color: #1586C1 !important"type = "submit" value = "Create">
+                                    </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="row">
-                            <form class="col s12 push-s3">
-                                <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input id="password" type="password" class="validate" onkeyup='check();'>
-                                    <label for="password" id= "password_label" class="active">Password</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col s12 push-s3">
-                                <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input id="confirm_password" type="password" class="validate" onkeyup='check();'>
-                                    <label for="confirm_password" id= "confirm_password_label" class="active">Confirm Password</label>
-                                    <span id='message'></span>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="outer">
-                            <div class= "inner"><form class="col s12 push-s1">
-                                <a class="waves-effect waves-light btn btn-small" id="createaccountbtn" style="background-color: white; color: #1586C1 !important">Create Account</a>
-                            </form></div>
-                        </div>
                     </div>
                 </div>
             </div>

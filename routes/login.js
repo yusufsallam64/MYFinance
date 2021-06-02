@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
                         layout: 'login'});
 });
 
+router.post('/', function(req, res, next) {
+    res.render('dashboard', { title: ' Home Page ',
+                              style: 'dashboard.css'});
+})
+
 module.exports = router;
