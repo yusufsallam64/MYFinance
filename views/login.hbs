@@ -24,7 +24,11 @@
                         <div id="title">
                             <h>MY Finance</h>
                         </div>
-                        
+                        <div class = "row">
+                            {{#if invalid}}
+                                <h3 id = "invalidtext">Invalid Username / Password</h3>
+                            {{/if}}
+                        </div>
                         <div class="row">
                             <form class="col s12 push-s3" method="POST" action="/">
                                 <div class="row">

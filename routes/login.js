@@ -31,10 +31,16 @@ router.post('/', function(req, res, next) {
                         res.redirect('/dashboard');
                     } else {
                         console.log("invalid password --> try again");
+                        res.render('login', {style: 'login.css',
+                                     layout: 'login',
+                                     invalid : true});
                     };
                 });
             } else {
                 console.log("invalid username --> does not exist");
+                res.render('login', {style: 'login.css',
+                                     layout: 'login',
+                                     invalid : true});
             }
         }).catch((err) => {   
             next(err);

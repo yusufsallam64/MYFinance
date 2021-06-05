@@ -1,4 +1,4 @@
-* {
+*:not(#invalidtext) {
     font-family: 'Oswald', sans-serif;
     color: white !important;
 }
@@ -8,6 +8,11 @@ body {
     background-image: url(/images/ArrowTransparent.svg);
 }
 
+#invalidtext {
+    color: rgb(146, 43, 43); 
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
 
 #title {
     text-align: center;
