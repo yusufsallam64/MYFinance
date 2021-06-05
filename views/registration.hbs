@@ -25,22 +25,22 @@
                             <h>Create Account</h>
                         </div>
                         <div class="row">
-                            <form class="col s12 push-s3" method="POST" action="/createAccount">
+                            <form class="col s12 push-s3" method="POST" action="/registration">
                                 <div class="row">
                                     <div class="input-field col s12 m6">
-                                        <input name = "username" id="username" type="text" class="validate">
+                                        <input name = "username" id="username" type="text" class="validate" required>
                                         <label for="username" id="usernamelabel" class="active">Username</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12 m6">
-                                        <input name = "password" id="password" type="password" class="validate" onkeyup='check();'>
+                                        <input name = "password" id="password" type="password" class="validate" onkeyup='check();' required>
                                         <label for="password" id= "password_label" class="active">Password</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12 m6">
-                                        <input id="confirm_password" type="password" class="validate" onkeyup='check();'>
+                                        <input id="confirm_password" type="password" class="validate" onkeyup='check();' required>
                                         <label for="confirm_password" id= "confirm_password_label" class="active">Confirm Password</label>
                                         <span id='message'></span>
                                     </div>

@@ -26,32 +26,32 @@
                         </div>
                         
                         <div class="row">
-                            <form class="col s12 push-s3">
+                            <form class="col s12 push-s3" method="POST" action="/">
                                 <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input id="username" type="text" class="validate">
-                                    <label for="username" id="usernamelabel" class="active" style="font-size: 20px;">Username</label>
+                                    <div class="input-field col s12 m6">
+                                        <input name = "username" id="username" type="text" class="validate" required>
+                                        <label for="username" id="usernamelabel" class="active" style="font-size: 20px;">Username</label>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col s12 push-s3">
                                 <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input id="password" type="password" class="validate">
-                                    <label for="password" id= "passwordlabel" class="active" style="font-size: 20px;">Password</label>
+                                    <div class="input-field col s12 m6">
+                                        <input name = "password" id="password" type="password" class="validate" required>
+                                        <label for="password" id= "passwordlabel" class="active" style="font-size: 20px;">Password</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="outer">
+                                        <div class= "inner">
+                                            <input class = "waves-effect waves-light btn btn-small" id="loginbtn" style = "background-color: white; color: #1586C1 !important"type = "submit" value = "Login">
+                                            <a class="waves-effect waves-light btn btn-small" id="createaccountbtn" style="background-color: white; color: #1586C1 !important" onclick="location.href='http://localhost:3000/registration'">Create Account</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                         
-                        <div id="outer">
-                            <div class= "inner"><form class="col s12 push-s20">
-                                <a class="waves-effect waves-light btn btn-small" id="loginbtn" style="background-color: white; color: #1586C1 !important" onclick="location.href='http://localhost:3000/dashboard'">Login</a>
-                            </form></div>
-                            <div class= "inner"><form class="col s12 push-s1">
-                                <a class="waves-effect waves-light btn btn-small" id="createaccountbtn" style="background-color: white; color: #1586C1 !important" onclick="location.href='http://localhost:3000/registration'">Create Account</a>
-                            </form></div>
-                        </div>
+                        
+                        
                         
                     </div>
                 </div>
