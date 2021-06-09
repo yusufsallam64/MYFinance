@@ -2,3 +2,4 @@ node_modules
 todo.txt
 .idea
 .vscode
+.env

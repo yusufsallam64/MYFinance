@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/yusufsallam64/MYFinance#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "debug": "^4.3.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-mysql-session": "^2.1.6",
+    "express-session": "^1.17.2",
     "hbs": "^4.1.2",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1"
