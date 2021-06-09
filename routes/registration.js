@@ -21,9 +21,13 @@ router.post('/', function(req, res, next) {
         res.redirect('/dashboard');
     } else {
         let username = req.body.username;
+        // TODO ADD .CATCH FOR THIS PROMISE
         findUser(username).then((results) => {
             if(results.length > 0){
-                console.log("username already exists");
+                res.render('registration', { style : 'registration.css',
+                                             layout : 'registration',
+                                             accountExists : true});
+                return;
             } else {
                 console.log(req.body);
                 bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
@@ -38,6 +42,8 @@ router.post('/', function(req, res, next) {
                     });
                 })
             }
+        }).catch((err) => {
+            next(err);
         })
     }
 });

@@ -1,4 +1,4 @@
-* {
+*:not(#invalidtext) {
     font-family: 'Oswald', sans-serif;
     color: white !important;
 }
@@ -33,6 +33,8 @@ h{
     display: inline-block;
 }
 
-
-
-
+#invalidtext {
+    color: rgb(146, 43, 43); 
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}

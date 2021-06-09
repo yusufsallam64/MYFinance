@@ -24,6 +24,11 @@
                         <div id="title">
                             <h>Create Account</h>
                         </div>
+                        <div class = "row">
+                            {{#if accountExists}}
+                                <h3 id = "invalidtext">Username is already in use</h3>
+                            {{/if}}
+                        </div>
                         <div class="row">
                             <form class="col s12 push-s3" method="POST" action="/registration">
                                 <div class="row">
