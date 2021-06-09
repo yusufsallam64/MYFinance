@@ -15,24 +15,22 @@
     {{#if style}}
     <link rel="stylesheet" href="css/{{ style }}">
     {{/if}}
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
-    
-
-    <title>Summerville Rec Soccer - {{ title }}</title>
 
 </head>
 
 <body>
 <header>
-    <nav>
+    <nav class="white">
         <div class = "nav-wrapper">
             <a href = "#" data-target = "mobile-demo" class = "sidenav-trigger"><i class = "material-icons">menu</i></a>
 
-            <a href="#" class = "right brand-logo">SMV Rec Soccer</a>
+            <a href="#" class = "right brand-logo" style="color: #1586C1">MY Finance</a>
             <ul class = "left hide-on-med-and-down">
-                <li><a href = "/dashboard">Dashboard</a></li>
-                <li><a href = "/stockwatch">Stock Watch</a></li>
-                <li><a href = "/settings"> Settings</a></li>
+                <li><a href = "/dashboard" style="font-size: 25px; color: #1586C1">Dashboard</a></li> 
+                <li><a href = "/stockwatch" style="font-size: 25px; color: #1586C1">Stock Watch</a></li>
+                <li><a href = "/settings" style="font-size: 25px; color: #1586C1"> Settings</a></li>
             </ul>
         </div>
     </nav>
@@ -49,13 +47,6 @@
     {{{body}}}
 </main>
 
-<footer class = "page-footer">
-    <div class = "row">
-        <div class = "col s5"><h6>Summerville Recreational Department</h6></div>
-        <div class = "col s2"><h6 style = "text-align: center">434-232-7676</h6></div>
-        <div class = "col s5"><h6 style = "text-align: right">rec@summerville.org</h6></div>
-    </div>
-</footer>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

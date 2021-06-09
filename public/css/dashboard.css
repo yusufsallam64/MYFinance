@@ -1,9 +1,35 @@
 * {
     font-family: 'Oswald', sans-serif;
-    color: white !important;
+    color: white;
 }
 
-body {
-    background-color: #1586C1;
+
+
+
+.vertical-menu {
+    width: 300px;
+    height: 700px;
+    overflow-y: auto;
+  }
+  
+.vertical-menu a {
+    background-color: #eee; 
+    color: black; 
+    display: block; 
+    padding: 30px; 
+    text-decoration: none; 
 }
 
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+#top {
+    background-color: #c0c3c4; /* Add a green color to the "active/current" link */
+    font-size: 25px;
+    text-align: center;
+}
+
+#stats {
+    font-size: 50px;
+}

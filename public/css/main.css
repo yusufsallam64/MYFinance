@@ -1,7 +1,12 @@
+* {
+    font-family: 'Oswald', sans-serif;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* added to make footer at bottom */
+    background-color:  #494f52;
 }
 
 main {
