@@ -21,7 +21,6 @@ router.post('/', function(req, res, next) {
         res.redirect('/dashboard');
     } else {
         let username = req.body.username;
-        // TODO ADD .CATCH FOR THIS PROMISE
         findUser(username).then((results) => {
             if(results.length > 0){
                 res.render('registration', { style : 'registration.css',
@@ -31,9 +30,7 @@ router.post('/', function(req, res, next) {
             } else {
                 console.log(req.body);
                 bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-                    // ADD AND CHECK TO SEE IF USERNAME ALREADY EXISTS AND IF SO THEN DO NOT PERMIT THROW ERROR
                     insertUser(username, hash).then(()=> {
-                        // const { userID } = req.session
                         console.log(req.body);
                         console.log(req.session);
                         res.redirect('/');

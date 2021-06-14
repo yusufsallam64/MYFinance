@@ -8,7 +8,6 @@ function insertUser(username, password){
 }
 
 function findUser(username){
-    // VULNERABLE TO SQL INJECTION WATCH OUT FOR THIS
     return db.queryPromise(`SELECT * from user WHERE name = ?`, [username]);   
 }
 

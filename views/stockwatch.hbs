@@ -23,41 +23,30 @@
 <body>
     <div class= "container">
         <div class="row">
-        <form class="col s12 push-s3" id="tickerinput" style="color: white; font-size: 25px">
-          Enter Company Ticker : 
+        <form class="col s12 push-s3" id="tickerinput" style="color: white; font-size: 25px" method = "POST" action = "/stockwatch">
+          <h5>Enter Company Ticker :</h5> 
           <div class="input-field inline" id="inputclass">
-            <input id="ticker_input" class="validate" style="font-size: 25px; color: white">
+            <input id="ticker_input" class="validate" style="font-size: 25px; color: white" name = "tickervalue">
             <label for="ticket_input"></label>
           </div>
-           <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: white; color: black !important; font-size: 15px" onclick="searchClicked()">Search</a>
+           {{!-- <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: white; color: black !important; font-size: 15px" onclick="searchClicked()" type="submit">Search</a> --}}
+           <input class = "waves-effect waves-light btn btn-small" id="submitbtn" style = "background-color: white; color: black !important; font-size: 15px" onclick="searchClicked()" type = "submit" value = "Search">
         </form>
         </div>
     </div>
 
-    <div class="conatiner" id="tickerinfo" style="display: none">
+    {{!-- in the future make it so that if theres undefined values, you mention that and display the proper errors --}}
+    {{#if price}}
+    <div class="container" id="tickerinfo">
       <div class="row">
         <div class="col s4 push-s2">
-        <h4 id="companyname"> Company Name: Random Comapony (RAC) </h4>
+        <h4 id="companyname"> Company: {{companyname}} </h4>
         </div>
         <div class="col s4 push-s3">
-        <h4 id="companyname"> -70% ($40329) </h4>
+        <h4 id="companyname"> ${{price}} [{{percentchange}}]  </h4>
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script>
-      function searchClicked() {
-        document.getElementById("tickerinfo").style.display = "block";  // <-- Set it to block
-      }
-    </script>
+    {{/if}}
+    <script type="text/javascript" src="js/materialize.min.js"></script> --}}
 </body>
