@@ -45,7 +45,55 @@
         <div class="col s4 push-s3">
         <h4 id="companyname"> ${{price}} [{{percentchange}}]  </h4>
         </div>
+
+        
+
       </div>
+      <div class="row">
+      <!-- TradingView Widget BEGIN -->
+        <div class="col s1 push-s5">
+        <div class="tradingview-widget-container">
+          <div id="tradingview_136be"></div>
+          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"></a></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+          <script type="text/javascript">
+          new TradingView.widget(
+          {
+          "width": 980,
+          "height": 610,
+          "symbol": "AMZN",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "locale": "en",
+          "toolbar_bg": "#f1f3f6",
+          "enable_publishing": false,
+          "allow_symbol_change": true,
+          "container_id": "tradingview_136be"
+        }
+          );
+          </script>
+        </div>
+        </div>
+        <!-- TradingView Widget END -->
+        <div class="container" id="formCont">
+          <div class="row" id="formRow">
+            <div class="form">
+              <div class="col s12 pull-s11">
+                <label for="pba" style="font-size:30px">Price Bought At: </label>
+                <input id="pba" type="text" class="validate" style="font-size: 30px; color:white">
+              </div>
+              <div class="col s12 pull-s11">
+                <label for="pba" style="font-size:30px">Shares Bought: </label>
+                <input id="pba" type="text" class="validate" style="font-size: 30px;">
+              </div>
+              <div class="col s5 pull-s7">
+                <a class="waves-effect waves-light btn btn-large" id="createaccountbtn" style="background-color: white; color: black !important" onclick="location.href='http://localhost:3000/stockwatch'">Add To Account</a>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     {{/if}}
     <script type="text/javascript" src="js/materialize.min.js"></script> --}}
