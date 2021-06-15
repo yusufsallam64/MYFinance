@@ -19,13 +19,19 @@ router.post('/', function(req, res, next) {
     stockdata.stdout.on('data', function(data) {
         price = (data.toString());
         let scriptreturn = (price.split("'", [-1]));
+        console.log(scriptreturn);
         let currentprice = scriptreturn[1];
         let percentchange = scriptreturn[3];
         let companyname = scriptreturn[5];
+        let ticker = (companyname.split('(', [-1]))[1].slice(0, -1);
+        console.log(ticker);
         res.render('stockwatch', {style:'stockwatch.css',
                                   price: currentprice,
                                   percentchange: percentchange,
-                                  companyname: companyname});
+                                  companyname: companyname,
+                                  ticker: ticker
+                                
+                                });
     });
 
     stockdata.stdin.end();
