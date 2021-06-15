@@ -39,7 +39,7 @@ router.get('/', (req, res, next) => {
       getStocks(userId).then((results) => {
         console.log(results);
         if(results.length === 0){
-          res.render('dashboard', {style: 'dashboard.css'});
+          res.redirect('/stockwatch')
           return;
         } else {
           res.render('dashboard', {style: 'dashboard.css',

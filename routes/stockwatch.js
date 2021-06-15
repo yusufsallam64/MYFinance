@@ -6,7 +6,11 @@ const { spawn } = require('child_process');
 // for this do type validation and make sure that you have the correct types going into the database
 
 router.post('/', function(req, res, next) {
-    insertStock(req.session.userId, req.query.tickervalue, req.body.pba, req.body.shares);
+    userId = (req.session.userId);
+    tickervalue = (req.query.tickervalue);
+    pba = (req.body.pba);
+    shares = (req.body.shares);
+    insertStock(userId, tickervalue, pba, shares);
     res.redirect('/stockwatch');
 });
 
