@@ -19,7 +19,7 @@ try:
     values.append(priceText.text)
 except Exception:
     # return "Invalid Ticker!"
-    print("Oopsie")
+    print("err", flush = True, end = '')
 
 try:
     changeText = soup.find('span', class_='Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($negativeColor)')

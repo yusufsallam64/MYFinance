@@ -1,100 +1,92 @@
 <!DOCTYPE html>
-<!--
-   Step 0 of static website creation:
-   Empty start code.
--->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel = "stylesheet" href = "css/main.css">
-    {{#if style}}
-    <link rel="stylesheet" href="css/{{ style }}">
-    {{/if}}
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
-
-</head>
 
 <body>
     <div class= "container">
         <div class="row">
-        <form class="col s12 push-s3" id="tickerinput" style="color: white; font-size: 25px" method = "POST" action = "/stockwatch">
+        <form class="col s12 push-s3" id="tickerinput" style="color: white; font-size: 25px" method = "GET" action = "/stockwatch">
           <h5>Enter Company Ticker :</h5> 
           <div class="input-field inline" id="inputclass">
             <input id="ticker_input" class="validate" style="font-size: 25px; color: white" name = "tickervalue">
-            <label for="ticket_input"></label>
+            <label for="ticker_input"></label>
           </div>
            {{!-- <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: white; color: black !important; font-size: 15px" onclick="searchClicked()" type="submit">Search</a> --}}
            <input class = "waves-effect waves-light btn btn-small" id="submitbtn" style = "background-color: white; color: black !important; font-size: 15px" onclick="searchClicked()" type = "submit" value = "Search">
         </form>
         </div>
     </div>
-
-    {{!-- in the future make it so that if theres undefined values, you mention that and display the proper errors --}}
-    {{#if price}}
-    <div class="container" id="tickerinfo">
-      <div class="row">
-        <div class="col s4 push-s2">
-        <h4 id="companyname"> Company: {{companyname}} </h4>
+    
+    {{#if errorretrieving}}
+      <div class = "container">
+        <div class = "row">
+          <h3 style = "color: red">{{ticker}} is an invalid ticker.</h3>
         </div>
-        <div class="col s4 push-s3">
-        <h4 id="companyname"> ${{price}} [{{percentchange}}]  </h4>
-        </div>
-
-        
-
       </div>
-      <div class="row">
-      <!-- TradingView Widget BEGIN -->
-        <div class="col s1 push-s5">
-        <div class="tradingview-widget-container">
-          <div id="tradingview_136be"></div>
-          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"></a></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-          <script type="text/javascript">
-          new TradingView.widget(
-          {
-          "width": 980,
-          "height": 610,
-          "symbol": "{{ticker}}",
-          "interval": "D",
-          "timezone": "Etc/UTC",
-          "theme": "dark",
-          "style": "1",
-          "locale": "en",
-          "toolbar_bg": "#f1f3f6",
-          "enable_publishing": false,
-          "allow_symbol_change": true,
-          "container_id": "tradingview_136be"
-        }
-          );
-          </script>
+    {{/if}}
+    {{!-- in the future make it so that if theres undefined values, you mention that and display the proper errors --}}
+    {{#unless errorretrieving}}
+      {{#if price}}
+      <div class="container" id="tickerinfo">
+        <div class="row">
+          <div class="col s4 push-s2">
+          <h4 id="companyname"> Company: {{companyname}} </h4>
+          </div>
+          <div class="col s4 push-s3">
+          <h4 id="companyname"> ${{price}} [{{percentchange}}]  </h4>
+          </div>
+
+          
+
         </div>
-        </div>
-        <!-- TradingView Widget END -->
-        <div class="container" id="formCont">
-          <div class="row" id="formRow">
-            <div class="form">
-              <div class="col s12 pull-s11">
-                <label for="pba" style="font-size:30px">Price Bought At: </label>
-                <input id="pba" type="text" class="validate" style="font-size: 30px; color:white">
-              </div>
-              <div class="col s12 pull-s11">
-                <label for="pba" style="font-size:30px">Shares Bought: </label>
-                <input id="pba" type="text" class="validate" style="font-size: 30px;">
-              </div>
-              <div class="col s5 pull-s7">
-                <a class="waves-effect waves-light btn btn-large" id="createaccountbtn" style="background-color: white; color: black !important" onclick="location.href='http://localhost:3000/stockwatch'">Add To Account</a>
-              </div>
+        <div class="row">
+        <!-- TradingView Widget BEGIN -->
+          <div class="col s1 push-s5">
+          <div class="tradingview-widget-container">
+            <div id="tradingview_136be"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+            new TradingView.widget(
+            {
+            "width": 980,
+            "height": 610,
+            "symbol": "{{ticker}}",
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "allow_symbol_change": true,
+            "container_id": "tradingview_136be"
+          }
+            );
+            </script>
+          </div>
+          </div>
+          <!-- TradingView Widget END -->
+          <div class="container" id="formCont">
+            <div class="row" id="formRow">
+              <form method = "POST" action = "/stockwatch?tickervalue={{ticker}}">
+                <div class="col s12 pull-s11">
+                  <label for="pba" name = "pba" style="font-size:30px">Price Bought At: </label>
+                  <input id="pba" name = "pba" type="text" class="validate" style="font-size: 30px; color:white">
+                </div>
+                <div class="col s12 pull-s11">
+                  <label for="shares" name = "shares" style="font-size:30px">Shares Bought: </label>
+                  <input id="shares" name = "shares" type="text" class="validate" style="font-size: 30px; color:white">
+                </div>
+                <div class="col s5 pull-s7">
+                  <input class = "waves-effect waves-light btn btn-large" id="createaccountbtn" style = "background-color: white; color: black !important" type = "submit" value = "Add to Account">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-    </div>
-    {{/if}}
+      </div>
+      {{/if}}
+    {{/unless}}
     <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
+
+
