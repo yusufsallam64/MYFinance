@@ -39,12 +39,12 @@
         <div class="container">
             <div class="row">
                 <div class="col s5 push-s6">
-                <h id="stats" style="text-align: center">Stats</h>
+                <h id="stats" style="text-align: center; color: white">Stats</h>
                 </div>
                 <div class="col s12 push-s2">                    
                     {{#if home}}
-                    <h4 style="color:white">Current Profit: $89</h4>
-                    <h4 style="color:white">Amount Of Stocks Owned: 1</h4>
+                    <h4 style="color:white">Current Profit: ${{profit}}</h4>
+                    <h4 style="color:white">Amount Of Stocks Owned: {{numpos}}</h4>
                     {{/if}}
                     {{#if searchedticker}}
                         {{#if purchaseprice}}

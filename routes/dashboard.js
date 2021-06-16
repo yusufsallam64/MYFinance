@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { getStocks, removeStocks, purchaseInfo } = require('../db/dashboard.js');
+const { getStocks, removeStocks, purchaseInfo, getNumPos } = require('../db/dashboard.js');
 const { spawn } = require('child_process');
 
 /* GET home page. */
@@ -54,18 +54,22 @@ router.get('/', (req, res, next) => {
             console.log(combinedvals);
             const stockdata = spawn('python', ['webscraping/calculatetotals.py']);
             stockdata.stdin.write(JSON.stringify(combinedvals))
-            
+
             stockdata.stdout.on('data', function(data) {
-                price = (data.toString());
-                let scriptreturn = (price.split("'", [-1]));
-                console.log(scriptreturn);
+                let profit = (data.toString());
+                profit = parseFloat(profit);
+                profit = profit.toFixed(2);
+                
+                getNumPos(userId).then((positions) => {
+                  res.render('dashboard', {style: 'dashboard.css',
+                  stock: results,
+                  profit: profit,
+                  numpos: positions[0].count,
+                  home: true});
+                });
             });
 
             stockdata.stdin.end();
-
-            res.render('dashboard', {style: 'dashboard.css',
-                                    stock: results,
-                                    home: true});
             return;
         })};
       }).catch((err) => {

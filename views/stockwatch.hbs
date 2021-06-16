@@ -20,7 +20,7 @@
     {{#if errorretrieving}}
       <div class = "container">
         <div class = "row">
-          <h3 style = "color: red">{{ticker}} is an invalid ticker.</h3>
+          <h3 style = "color: red; text-align: center;">{{ticker}} is an invalid ticker</h3>
         </div>
       </div>
     {{/if}}
@@ -30,10 +30,10 @@
       <div class="container" id="tickerinfo">
         <div class="row">
           <div class="col s4 push-s2">
-          <h4 id="companyname"> Company: {{companyname}} </h4>
+          <h4 id="companyname" style ="color: white">{{companyname}}</h4>
           </div>
           <div class="col s4 push-s3">
-          <h4 id="companyname"> ${{price}} [{{percentchange}}]  </h4>
+          <h4 id="companyname" style ="color: white"> ${{price}} [{{percentchange}}]  </h4>
           </div>
 
           

@@ -12,8 +12,13 @@ function purchaseInfo(user_id){
     return db.queryPromise('Select ticker, pba, amount from stocks where user_id = ?', [user_id]);
 }
 
+function getNumPos(user_id){
+    return db.queryPromise('select count(*) as count from stocks where user_id = ?', [user_id]);
+}
+
 module.exports = {
     getStocks: getStocks,
     removeStocks: removeStocks,
-    purchaseInfo: purchaseInfo
+    purchaseInfo: purchaseInfo,
+    getNumPos: getNumPos
 };
