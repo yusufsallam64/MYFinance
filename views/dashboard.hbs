@@ -42,11 +42,13 @@
                     <div class = "row">
                         <h id="stats">Stats</h>
                     </div>
+                    <h4 style="color:white">Current Profit: $89</h4>
+                    <h4 style="color:white">Amount Of Stocks Owned: 1</h4>
                     {{#if searchedticker}}
                         {{#if purchaseprice}}
                             {{#if shares}}
                                 <div class = "row">
-                                    <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: white; color: black !important; font-size: 15px"  href="/dashboard?ticker={{searchedticker}}&pba={{purchaseprice}}&shares={{shares}}&delete=true">{{searchedticker}} [Purchased {{shares}} shares @ ${{purchaseprice}}]</a>
+                                    <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: red; color: white !important; font-size: 15px"  href="/dashboard?ticker={{searchedticker}}&pba={{purchaseprice}}&shares={{shares}}&delete=true">Remove Stock</a>
                                 </div>
                             {{/if}}
                         {{/if}}
