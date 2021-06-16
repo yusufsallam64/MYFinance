@@ -42,8 +42,10 @@
                     <div class = "row">
                         <h id="stats">Stats</h>
                     </div>
+                    {{#if home}}
                     <h4 style="color:white">Current Profit: $89</h4>
                     <h4 style="color:white">Amount Of Stocks Owned: 1</h4>
+                    {{/if}}
                     {{#if searchedticker}}
                         {{#if purchaseprice}}
                             {{#if shares}}

@@ -43,7 +43,8 @@ router.get('/', (req, res, next) => {
           return;
         } else {
           res.render('dashboard', {style: 'dashboard.css',
-                                   stock: results});
+                                   stock: results,
+                                   home: true});
           return;
           }
       }).catch((err) => {
