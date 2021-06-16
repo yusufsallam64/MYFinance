@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { getStocks, removeStocks} = require('../db/dashboard.js');
+const { getStocks, removeStocks, purchaseInfo } = require('../db/dashboard.js');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -42,6 +42,12 @@ router.get('/', (req, res, next) => {
           res.redirect('/stockwatch')
           return;
         } else {
+          purchaseInfo(userId).then((results) => {
+            console.log(results);
+            
+
+          })
+
           res.render('dashboard', {style: 'dashboard.css',
                                    stock: results,
                                    home: true});

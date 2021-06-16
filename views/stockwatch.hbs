@@ -72,11 +72,11 @@
               <form method = "POST" action = "/stockwatch?tickervalue={{ticker}}">
                 <div class="col s12 pull-s11">
                   <label for="pba" name = "pba" style="font-size:30px">Price Bought At: </label>
-                  <input id="pba" name = "pba" type="number" min = "0" step = "0.000001" class="validate" style="font-size: 30px; color:white" required>
+                  <input id="pba" name = "pba" type="number" min = "0.000001" step = "0.000001" class="validate" style="font-size: 30px; color:white" required>
                 </div>
                 <div class="col s12 pull-s11">
                   <label for="shares" name = "shares" style="font-size:30px">Shares Bought: </label>
-                  <input id="shares" name = "shares" type="number" min = "0" class="validate" style="font-size: 30px; color:white" required>
+                  <input id="shares" name = "shares" type="number" min = "0.01" step = "0.01" class="validate" style="font-size: 30px; color:white" required>
                 </div>
                 <div class="col s5 pull-s7">
                   <input class = "waves-effect waves-light btn btn-large" id="createaccountbtn" style = "background-color: white; color: black !important" type = "submit" value = "Add to Account">
