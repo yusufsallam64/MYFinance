@@ -19,11 +19,29 @@ router.get('/', (req, res, next) => {
         if(results.length === 0){
           res.render('dashboard', {style: 'dashboard.css'});
         } else {
-          res.render('dashboard', {style: 'dashboard.css',
-                                   stock: results,
-                                   searchedticker: ticker,
-                                   purchaseprice: pba,
-                                   shares: shares});
+          const stockdata = spawn('python', ['webscraping/profitandval.py']);
+          let combinedvals = [];
+          combinedvals.push(`${ticker} ${pba} ${shares}`);
+          stockdata.stdin.write(JSON.stringify(combinedvals));
+          stockdata.stdout.on('data', function(data) {
+              let profit = (data.toString());
+              profit = profit.split("\n");
+              let netvalue = parseFloat(profit[0]);
+              let valofshares = parseFloat(profit[1]);
+              netvalue = netvalue.toFixed(2);
+              valofshares = valofshares.toFixed(2);
+              
+              res.render('dashboard', {style: 'dashboard.css',
+                                        stock: results,
+                                        searchedticker: ticker,
+                                        purchaseprice: pba,
+                                        shares: shares,
+                                        valofshares: valofshares,
+                                        currentprofit: netvalue});
+          });  
+
+          stockdata.stdin.end();
+
           return;
         }
       }).catch((err) => {
@@ -36,6 +54,7 @@ router.get('/', (req, res, next) => {
       }).catch((err) => {
         console.log(err);
       });
+
     } else {
       getStocks(userId).then((results) => {
         console.log(results);
@@ -44,6 +63,7 @@ router.get('/', (req, res, next) => {
           return;
         } else {
           purchaseInfo(userId).then((results) => {
+            console.log(results)
             let combinedvals = [];
             for(var x = 0; x < results.length; x++){
               console.log(x)
@@ -51,11 +71,10 @@ router.get('/', (req, res, next) => {
               combinedvals.push(`${results[x].ticker} ${results[x].pba} ${results[x].amount}`);
             }
             
-            console.log(combinedvals);
             const stockdata = spawn('python', ['webscraping/calculatetotals.py']);
             stockdata.stdin.write(JSON.stringify(combinedvals))
-
             stockdata.stdout.on('data', function(data) {
+                console.log("bruh")
                 let profit = (data.toString());
                 profit = parseFloat(profit);
                 profit = profit.toFixed(2);
