@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { getStocks, removeStocks, purchaseInfo } = require('../db/dashboard.js');
+const { spawn } = require('child_process');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -43,22 +44,35 @@ router.get('/', (req, res, next) => {
           return;
         } else {
           purchaseInfo(userId).then((results) => {
-            console.log(results);
+            let combinedvals = [];
+            for(var x = 0; x < results.length; x++){
+              console.log(x)
+              console.log(results[x])
+              combinedvals.push(`${results[x].ticker} ${results[x].pba} ${results[x].amount}`);
+            }
             
+            console.log(combinedvals);
+            const stockdata = spawn('python', ['webscraping/calculatetotals.py']);
+            stockdata.stdin.write(JSON.stringify(combinedvals))
+            
+            stockdata.stdout.on('data', function(data) {
+                price = (data.toString());
+                let scriptreturn = (price.split("'", [-1]));
+                console.log(scriptreturn);
+            });
 
-          })
+            stockdata.stdin.end();
 
-          res.render('dashboard', {style: 'dashboard.css',
-                                   stock: results,
-                                   home: true});
-          return;
-          }
+            res.render('dashboard', {style: 'dashboard.css',
+                                    stock: results,
+                                    home: true});
+            return;
+        })};
       }).catch((err) => {
         console.log(err);
-      })
+      });
     }
 }});
-
 
 
 module.exports = router;
