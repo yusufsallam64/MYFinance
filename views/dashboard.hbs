@@ -24,7 +24,7 @@
                     
                     <div class="col s12">
                         <div class="vertical-menu">
-                            <a id="top">Your Stocks</a>
+                            <a href = "/dashboard" id="top">Your Stocks</a>
                             {{#each stock}}
                                 <a href="/dashboard?ticker={{ticker}}&pba={{pba}}&shares={{amount}}&delete=false" id="stock">{{ticker}} [Purchased {{amount}} shares @ ${{pba}}]</a>
                             {{/each}}
