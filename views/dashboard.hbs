@@ -38,10 +38,10 @@
 
         <div class="container">
             <div class="row">
+                <div class="col s5 push-s6">
+                <h id="stats" style="text-align: center">Stats</h>
+                </div>
                 <div class="col s12 push-s2">                    
-                    <div class = "row">
-                        <h id="stats">Stats</h>
-                    </div>
                     {{#if home}}
                     <h4 style="color:white">Current Profit: $89</h4>
                     <h4 style="color:white">Amount Of Stocks Owned: 1</h4>
@@ -49,9 +49,18 @@
                     {{#if searchedticker}}
                         {{#if purchaseprice}}
                             {{#if shares}}
-                                <div class = "row">
-                                    <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: red; color: white !important; font-size: 15px"  href="/dashboard?ticker={{searchedticker}}&pba={{purchaseprice}}&shares={{shares}}&delete=true">Remove Stock</a>
+                                <div class="stockInfo">
+                                    <h4>Current Profit: 1123123</h4>
+                                    <h4>Shares Owned: 3213</h4>
+                                    <h4>Money Value Of Shares: 1231</h4>
                                 </div>
+                                <h4></h4>
+                                <div class = "row">
+                                    <div class="col s5">
+                                    <a class="waves-effect waves-light btn btn-small" id="submitbtn" style="background-color: red; color: white !important; font-size: 15px"  href="/dashboard?ticker={{searchedticker}}&pba={{purchaseprice}}&shares={{shares}}&delete=true">Remove Stock</a>
+                                    </div>
+                                </div>
+                                
                             {{/if}}
                         {{/if}}
                     {{/if}}

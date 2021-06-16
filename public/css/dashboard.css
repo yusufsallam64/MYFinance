@@ -10,6 +10,11 @@
     color: grey;
 }
 
+#top {
+  text-align: center;
+  font-size: 30px;
+}
+
 .vertical-menu {
     width: 350px; /* Set a width if you like */
     height: 700px;
@@ -31,4 +36,10 @@
   .vertical-menu a.active {
     background-color: #04AA6D; /* Add a green color to the "active/current" link */
     color: white;
+  }
+
+  .stockInfo{
+    border: 1px solid white;
+    padding: 20px;
+    width: fit-content;
   }
